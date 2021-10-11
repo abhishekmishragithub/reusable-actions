@@ -7,18 +7,13 @@ name: Python CI workflow
 on:
   workflow_call:
     inputs:
-        CC_TEST_REPORTER_ID:
-          description: 'a repo-specific id provided by Codeclimate'
-          type: string
-          default: sadasd 
-        CODECOV_TOKEN:
-          description: 'a repo-specific token for Codcov report upload'
-          type: string
-    secrets:
-      CC_TEST_REPORTER_ID:
+      INPUT1:
         description: 'a repo-specific id provided by Codeclimate'
-      CODECOV_TOKEN:
-        description: 'a repo-specific token for Codcov report upload'
+        type: string
+    secrets:
+      SECRET1:
+        description: 'a repo-specific id provided by Codeclimate'
+        required: true
   push:
     branches:
       - dev
@@ -33,6 +28,14 @@ on:
       - dev
 
 jobs:
+  print-secret:
+    name: 'get secret'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Print secrets
+        run: echo '${{ secrets.SECRET1 }}'
+
   enforce-pr-description:
     name: 'Check PR description, fail if empty'
     runs-on: ubuntu-latest
