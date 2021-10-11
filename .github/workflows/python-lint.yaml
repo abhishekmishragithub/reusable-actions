@@ -6,6 +6,19 @@
 name: Python CI workflow
 on:
   workflow_call:
+    inputs:
+        CC_TEST_REPORTER_ID:
+          description: 'a repo-specific id provided by Codeclimate'
+          type: string
+          default: sadasd 
+        CODECOV_TOKEN:
+          description: 'a repo-specific token for Codcov report upload'
+          type: string
+    secrets:
+      CC_TEST_REPORTER_ID:
+        description: 'a repo-specific id provided by Codeclimate'
+      CODECOV_TOKEN:
+        description: 'a repo-specific token for Codcov report upload'
   push:
     branches:
       - dev
