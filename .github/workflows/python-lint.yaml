@@ -1,6 +1,6 @@
 ############################################################################################
-# Python lint worflow file with other checks
-# based on https://github.com/predictionmachine/pm-github-actions/blob/main/.github/workflows/pm-gh-actions.yml
+# Python lint workflow file with other checks for code quality.
+# This workflow is based on https://github.com/predictionmachine/pm-github-actions/blob/main/.github/workflows/pm-gh-actions.yml
 ############################################################################################
 
 name: Python CI workflow
